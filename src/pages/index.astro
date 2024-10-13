@@ -5,6 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DotPattern from "@/components/ui/dot-pattern";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
+import Particles from "@/components/ui/particles";
 ---
 
 <!doctype html>
@@ -46,10 +47,18 @@ import { Input } from "@/components/ui/input";
           </div>
         </BlurFade>
       </div>
-      <DotPattern
+      <!-- <DotPattern
         className={cn(
           "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
         )}
+      /> -->
+      <Particles
+        className="absolute inset-0"
+        quantity={200}
+        ease={80}
+        color={"#000"}
+        refresh
+        client:load
       />
     </main>
   </BaseLayout>
