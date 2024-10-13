@@ -1,13 +1,14 @@
 ---
 import { SITE_DESCRIPTION } from "../consts";
 import Layout from "../layouts/BlogPost.astro";
+import "@/styles/blog.css";
 ---
 
 <Layout
   title="About Paiper App"
   description={SITE_DESCRIPTION}
   pubDate={new Date("October 12 2024")}
-  heroImage="/blog-placeholder-about.jpg"
+  heroImage="/og-image.png"
 >
   <p>
     In a world drowning in paperwork, we saw a need for change. Paiper was born
@@ -62,6 +63,7 @@ import Layout from "../layouts/BlogPost.astro";
       boundaries of what's possible in document management.
     </li>
   </ul>
+  <br />
 
   <h2>Join the Paiper Revolution</h2>
   <p>
@@ -78,10 +80,11 @@ import Layout from "../layouts/BlogPost.astro";
   <h2>Contact Us</h2>
   <p>
     Have questions? We'd love to hear from you!<br />
-    Email: <a href="mailto:hello@paiper.app">hello@paiper.app</a><br />
+    Email: <a href="mailto:info@paiper.app">info@paiper.app</a><br />
     Follow us: @PaiperApp on <a href="https://twitter.com/PaiperApp">Twitter</a
     >, <a href="https://instagram.com/PaiperApp">Instagram</a>, and <a
-      href="https://linkedin.com/company/PaiperApp">LinkedIn</a>
+      href="https://linkedin.com/company/PaiperApp">LinkedIn</a
+    >
   </p>
 
   <p>Paiper: Your documents, smarter.</p>
