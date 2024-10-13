@@ -2,75 +2,34 @@
 import BlurFade from "@/components/ui/blur-fade";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import Particles from "@/components/ui/particles";
+import { Button } from "@/components/ui/button";
 ---
 
 <!doctype html>
-<style>
-  .top-navbar {
-    position: sticky;
-    top: 16px;
-    z-index: 10;
-    margin-left: 96px;
-    margin-right: 96px;
-    transition: top 0.3s;
-    border-radius: 64px !important;
-    transition: transform 500ms ease-in-out;
-  }
-  .top-navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    > :is(:first-child) {
-      margin-left: 16px;
-    }
-
-    > :is(:last-child) {
-      margin-right: 12px;
-    }
-    .items {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-  }
-</style>
 <html lang="en">
   <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <div class="top-navbar">
-      <div class={"top-navbar-container"}>
-        <a href="/">
-          <img
-            src="favicon.png"
-            alt="logo"
-            width={48}
-            height={48}
-            class="pointer-events-none dark:invert"
-          />
-        </a>
-        <!-- <div class={"top-navbar-items"}>
-          <a href="/"> Home </a>
-        </div> -->
-      </div>
-    </div>
-
     <main class="flex items-center justify-center h-screen">
-      <div class="max-w-2xl w-full text-center">
+      <div class="text-center max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl">
         <BlurFade delay={0.25} inView client:load>
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 md:mb-4"
+          >
             Stop Drowning in Papers
           </h1>
         </BlurFade>
         <BlurFade delay={0.25 * 2} inView client:load>
-          <h1 class="text-4xl md:text-5xl font-bold mb-8">
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-8 lg:mb-12"
+          >
             Start Finding in Seconds
           </h1>
         </BlurFade>
         <BlurFade delay={0.25 * 3} inView client:load>
-          <p class="text-lg mb-8 max-w-xl mx-auto text-gray-400">
+          <p
+            class="text-sm md:text-md lg:text-lg xl:text-xl mb-8 md:mb-12 text-gray-400 mx-3 md:mx-4"
+          >
             Transform your mountain of documents into an intelligent, searchable
             digital library. Never lose another important paper again. Become an
             early adopter and transform your document mess into searchable,
@@ -78,24 +37,25 @@ import Particles from "@/components/ui/particles";
           </p>
         </BlurFade>
         <BlurFade delay={0.25 * 4} inView client:load>
-          <h3 class="text-2xl font-bold mb-6">Join the Early Access List</h3>
+          <h3 class="text-xl md:text-2xl xl:text-3xl font-bold mb-6">
+            Sign up for early Access
+          </h3>
         </BlurFade>
         <BlurFade delay={0.25 * 5} inView client:load>
-          <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <div
+            class="flex gap-1 flex-col md:flex-row justify-center align-middle mx-8 md:mx-10"
+          >
             <Input
               type="email"
-              disabled
-              placeholder="Enter your email"
-              className="cursor-not-allowed px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-grow max-w-md"
+              placeholder="Your email address"
+              className="px-4 py-2 border border-gray-200 rounded-xl focus:outline-none md:max-w-xs"
             />
+            <Button className="border border-gray-200 rounded-xl" client:load
+              >Subscribe</Button
+            >
           </div>
         </BlurFade>
       </div>
-      <!-- <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-        )}
-      /> -->
       <Particles
         className="absolute inset-0"
         quantity={200}
