@@ -42,17 +42,38 @@ import { Button } from "@/components/ui/button";
           </h3>
         </BlurFade>
         <BlurFade delay={0.25 * 5} inView client:load>
-          <div
+          <form
+            id="emailForm"
             class="flex gap-1 flex-col md:flex-row justify-center align-middle mx-8 md:mx-10"
           >
             <Input
+              id="emailInput"
               type="email"
               placeholder="Your email address"
               className="px-4 py-2 border border-gray-200 rounded-xl focus:outline-none md:max-w-xs"
+              required
             />
-            <Button className="border border-gray-200 rounded-xl" client:load
-              >Subscribe</Button
+            <Button
+              id="subscribeButton"
+              type="submit"
+              className="border border-gray-200 rounded-xl"
+              client:load
             >
+              Subscribe
+            </Button>
+          </form>
+          <div
+            id="successMessage"
+            class="hidden text-green-500 text-sm md:text-md lg:text-lg xl:text-xl mt-8 mx-3 md:mx-4"
+          >
+            You are all set, We will reach out to you when the early access
+            opens!
+          </div>
+          <div
+            id="errorMessage"
+            class="hidden text-sm md:text-md lg:text-lg xl:text-xl mt-4 text-red-400 mx-3 md:mx-4"
+          >
+            Could not add that email address. Please try again.
           </div>
         </BlurFade>
       </div>
@@ -67,3 +88,38 @@ import { Button } from "@/components/ui/button";
     </main>
   </BaseLayout>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const emailForm = document.getElementById("emailForm") as HTMLFormElement;
+    const emailInput = document.getElementById(
+      "emailInput",
+    ) as HTMLInputElement;
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+
+    emailForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const email = emailInput?.value;
+      if (email) {
+        try {
+          errorMessage?.classList.add("hidden");
+
+          const response = await fetch(
+            `https://addearlyaccessuser-v4mpmgatrq-uc.a.run.app?email=${encodeURIComponent(email)}`,
+          );
+          if (response.status === 200) {
+            emailForm?.classList.add("hidden");
+            successMessage?.classList.remove("hidden");
+          } else {
+            errorMessage?.classList.remove("hidden");
+            console.error("Error submitting email");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          errorMessage?.classList.remove("hidden");
+        }
+      }
+    });
+  });
+</script>
