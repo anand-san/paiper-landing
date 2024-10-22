@@ -17,7 +17,7 @@ export default function AdditionalInfo() {
         </div>
       </div>
       <div className="pt-24 md:pt-40">
-        <h2 className="text-2xl md:text-3xl font-semibold text-purple-800">
+        <h2 className="text-2xl md:text-3xl font-semibold">
           Join the Early Access List
         </h2>
         <p className="mt-2 text-gray-600">

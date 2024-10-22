@@ -14,10 +14,10 @@ export default function FeatureSet() {
           {/* Outer container with glow effect */}
           <div className="relative group">
             {/* Gradient glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-br from-green-100 to-stone-100 rounded-xl blur-xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
+            <div className="absolute -inset-1 bg-gradient-to-br from-green-100 to-neutral-100 rounded-xl blur-xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
             {/* Main card */}
             <div className="h-auto sm:h-[500px] flex flex-col sm:flex-row justify-between items-center relative overflow-hidden rounded-xl bg-gradient-to-br from-green-50 to-neutral-100 shadow-lg">
-              <div className="w-full sm:max-w-[50%] p-8 sm:p-12">
+              <div className="w-full sm:max-w-[50%] p-6 sm:p-12">
                 <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
 
                 <div className="relative z-10 space-y-4">
@@ -42,19 +42,15 @@ export default function FeatureSet() {
           {/* Outer container with glow effect */}
           <div className="relative group">
             {/* Gradient glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-br to-blue-100 from-stone-100 rounded-xl blur-xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
-
+            <div className="absolute -inset-1 bg-gradient-to-br from-purple-100 to-neutral-100 rounded-xl blur-2xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
             {/* Main card */}
-            <div className="h-auto sm:h-[500px] flex flex-col sm:flex-row justify-between items-center relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-100 to-blue-50 p-4 sm:p-8 shadow-lg">
-              <div className="relative z-10 order-2 sm:order-1 mt-4 sm:mt-0">
-                <DocumentExplorer />
-              </div>
-              <div className="w-full sm:max-w-[50%] order-1 sm:order-2">
+            <div className="h-auto sm:h-[500px] flex flex-col sm:flex-row justify-between items-center relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-neutral-50 shadow-lg">
+              <div className="w-full sm:max-w-[50%] p-6 sm:p-12 order-1 sm:order-2">
                 <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
 
                 <div className="relative z-10 space-y-4">
                   <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900">
-                    AI Powered Analysis & Categorization{" "}
+                    AI Powered Analysis & Categorization
                   </h2>
 
                   <p className="text-sm md:text-md lg:text-lg xl:text-xl text-gray-400">
@@ -64,37 +60,8 @@ export default function FeatureSet() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full">
-          {/* Outer container with glow effect */}
-          <div className="relative group">
-            {/* Gradient glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-br to-blue-100 from-stone-100 rounded-xl blur-xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
-
-            {/* Main card */}
-            <div className="h-auto sm:h-[500px] flex flex-col sm:flex-row justify-between items-center relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-100 to-blue-50 p-4 sm:p-8 shadow-lg">
-              <div className="relative z-10 order-2 sm:order-1 mt-4 sm:mt-0">
-                <FileScanAnimation />
-              </div>
-              <div className="w-full sm:max-w-[50%] order-1 sm:order-2">
-                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
-
-                <div className="relative z-10 space-y-4">
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900">
-                    Time Travel Through Your Documents{" "}
-                  </h2>
-
-                  <p className="text-sm md:text-md lg:text-lg xl:text-xl text-gray-400">
-                    What did we agree to last year?&quot; &quot;How much have I
-                    paid in healthcare this year?&quot; Stop digging through
-                    files. Start getting instant answers. Paiper doesn&apos;t
-                    just store your documents – it understands them, remembers
-                    them, and puts critical information at your fingertips
-                  </p>
-                </div>
+              <div className="relative flex h-aut0 w-auto z-10 order-2 sm:order-1 mt-4 sm:mt-0">
+                <DocumentExplorer />
               </div>
             </div>
           </div>
@@ -104,10 +71,10 @@ export default function FeatureSet() {
           {/* Outer container with glow effect */}
           <div className="relative group">
             {/* Gradient glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-br from-purple-100 to-stone-100 rounded-xl blur-xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
+            <div className="absolute -inset-1 bg-gradient-to-br from-cyan-100 to-neutral-100 rounded-xl blur-2xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
             {/* Main card */}
-            <div className="h-auto sm:h-[500px] flex flex-col sm:flex-row justify-between items-center relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-neutral-100 shadow-lg">
-              <div className="w-full sm:max-w-[50%] p-8 sm:p-12">
+            <div className="h-auto sm:h-[500px] flex flex-col sm:flex-row justify-between items-center relative overflow-hidden rounded-xl bg-gradient-to-br from-cyan-50 to-neutral-50 shadow-lg">
+              <div className="w-full sm:max-w-[50%] p-6 sm:p-12">
                 <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
 
                 <div className="relative z-10 space-y-4">
@@ -131,7 +98,7 @@ export default function FeatureSet() {
                   className="size-[30px] border-none bg-transparent"
                   duration={20}
                   delay={20}
-                  radius={80}
+                  radius={70}
                 >
                   <CustomSvgIcons.dropbox />
                 </OrbitingCircles>
@@ -139,7 +106,7 @@ export default function FeatureSet() {
                   className="size-[30px] border-none bg-transparent"
                   duration={20}
                   delay={10}
-                  radius={80}
+                  radius={70}
                 >
                   <CustomSvgIcons.icloud />
                 </OrbitingCircles>
@@ -147,7 +114,7 @@ export default function FeatureSet() {
                 {/* Outer Circles (reverse) */}
                 <OrbitingCircles
                   className="size-[50px] border-none bg-transparent"
-                  radius={190}
+                  radius={140}
                   duration={20}
                   reverse
                 >
@@ -155,13 +122,44 @@ export default function FeatureSet() {
                 </OrbitingCircles>
                 <OrbitingCircles
                   className="size-[50px] border-none bg-transparent"
-                  radius={190}
+                  radius={140}
                   duration={20}
                   delay={20}
                   reverse
                 >
                   <CustomSvgIcons.googleDrive />
                 </OrbitingCircles>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full">
+          {/* Outer container with glow effect */}
+          <div className="relative group">
+            {/* Gradient glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-br from-amber-100 to-neutral-100 rounded-xl blur-2xl opacity-90 group-hover:opacity-100 transition duration-1000"></div>
+            {/* Main card */}
+            <div className="h-auto sm:h-[500px] flex flex-col sm:flex-row justify-between items-center relative overflow-hidden rounded-xl bg-gradient-to-br from-amber-50 to-neutral-50 shadow-lg">
+              <div className="w-full sm:max-w-[50%] p-6 sm:p-12 order-1 sm:order-2">
+                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
+
+                <div className="relative z-10 space-y-4">
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900">
+                    Time Travel Through Your Documents
+                  </h2>
+
+                  <p className="text-sm md:text-md lg:text-lg xl:text-xl text-gray-400">
+                    What did we agree to last year?&quot; &quot;How much have I
+                    paid in healthcare this year?&quot; Stop digging through
+                    files. Start getting instant answers. Paiper doesn&apos;t
+                    just store your documents – it understands them, remembers
+                    them, and puts critical information at your fingertips
+                  </p>
+                </div>
+              </div>
+              <div className="relative flex h-auto w-auto z-10 order-2 sm:order-1 mt-4 sm:mt-0">
+                <FileScanAnimation />
               </div>
             </div>
           </div>
