@@ -25,12 +25,12 @@ export default function FeatureSet() {
                     Your Intelligence Hub
                   </h2>
 
-                  <p className="text-sm md:text-md lg:text-lg xl:text-xl text-gray-400">
-                    Every document adds to your knowledge base. Our AI connects
-                    the dots across all your documents, surfacing patterns and
-                    insights you never knew existed. From predicting payment
-                    dates to identifying contract risks, turn your document
-                    archive into your strategic advantage.
+                  <p className="text-sm md:text-md lg:text-lg text-gray-400">
+                    Paiper connects the dots across all your documents,
+                    surfacing patterns and insights you never knew existed --
+                    takeaways, important dates, contract risks, auto translation
+                    and much more, turn your document archive into your
+                    strategic advantage.
                   </p>
                 </div>
               </div>
@@ -53,10 +53,11 @@ export default function FeatureSet() {
                     AI Powered Analysis & Categorization
                   </h2>
 
-                  <p className="text-sm md:text-md lg:text-lg xl:text-xl text-gray-400">
-                    Our AI automatically extracts key details, categorizes your
-                    documents (e.g., invoices, receipts, contracts), and
-                    summarizes the most important information.
+                  <p className="text-sm md:text-md lg:text-lg text-gray-400">
+                    Paiper automatically extracts key details, add tags,
+                    categorizes (and sub-categorizes) your documents (e.g.,
+                    invoices, receipts, contracts), and summarizes the most
+                    important information.
                   </p>
                 </div>
               </div>
@@ -82,11 +83,12 @@ export default function FeatureSet() {
                     Privacy First Document Processing
                   </h2>
 
-                  <p className="text-sm md:text-md lg:text-lg xl:text-xl text-gray-400">
-                    Your files are not stored on Paiper servers. You can use our
-                    cloud integrations and bring your files directly from your
-                    cloud storage. Paiper also offer processing without any
-                    storage, ensuring that you are in control of your documents.
+                  <p className="text-sm md:text-md lg:text-lg text-gray-400">
+                    You can bring your files directly from your cloud storage.
+                    We will never store a single file on our server. Paiper will
+                    also offer generating insights without any storage (in case
+                    you dont even want to integrate your cloud), ensuring that
+                    you are in control of your documents.
                   </p>
                 </div>
               </div>
@@ -149,12 +151,12 @@ export default function FeatureSet() {
                     Time Travel Through Your Documents
                   </h2>
 
-                  <p className="text-sm md:text-md lg:text-lg xl:text-xl text-gray-400">
-                    What did we agree to last year?&quot; &quot;How much have I
-                    paid in healthcare this year?&quot; Stop digging through
-                    files. Start getting instant answers. Paiper doesn&apos;t
-                    just store your documents – it understands them, remembers
-                    them, and puts critical information at your fingertips
+                  <p className="text-sm md:text-md lg:text-lg text-gray-400">
+                    What did we agree to that insurance last year?&quot;
+                    &quot;How much have I paid in healthcare this year?&quot;
+                    Stop digging through files. Start getting instant answers.
+                    Paiper understands you and your documents, and puts critical
+                    information at your fingertips
                   </p>
                 </div>
               </div>
