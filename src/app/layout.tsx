@@ -20,6 +20,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://paiper.app"),
   title: "Paiper App - Your Ultimate Document Intelligence Hub",
   description:
     "Transform your document archive into a strategic advantage. Discover patterns, identify contract risks, manage your documents effortlessly with AI categorization and bring your documents from your cloud.",
