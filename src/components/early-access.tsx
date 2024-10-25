@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { ReloadIcon } from "@radix-ui/react-icons";
@@ -10,6 +10,7 @@ export default function EarlyAccess() {
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [isSubscribing, setIsSubscribing] = useState(false);
+  const [subscribedEmail, setSubscribedEmail] = useState("");
 
   const triggerFireworks = () => {
     const duration = 5 * 1000;
@@ -40,6 +41,20 @@ export default function EarlyAccess() {
     }, 250);
   };
 
+  useEffect(() => {
+    const hasSignedUp =
+      localStorage.getItem("hasSignedUp") === "true" ||
+      sessionStorage.getItem("hasSignedUp") === "true";
+    const storedEmail =
+      localStorage.getItem("userEmail") || sessionStorage.getItem("userEmail");
+    if (hasSignedUp) {
+      setSuccessMessage(true);
+      if (storedEmail) {
+        setSubscribedEmail(storedEmail);
+      }
+    }
+  }, []);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setErrorMessage(false);
@@ -55,6 +70,11 @@ export default function EarlyAccess() {
         if (response.status === 200) {
           triggerFireworks();
           setSuccessMessage(true);
+          setSubscribedEmail(email);
+          localStorage.setItem("hasSignedUp", "true");
+          sessionStorage.setItem("hasSignedUp", "true");
+          localStorage.setItem("userEmail", email);
+          sessionStorage.setItem("userEmail", email);
         } else {
           setErrorMessage(true);
         }
@@ -99,9 +119,16 @@ export default function EarlyAccess() {
         </form>
       )}
       {successMessage && (
-        <p className="text-xs md:text-sm lg:text-lg xl:text-xl text-green-400">
-          Thank you for your interest, You are all set!
-        </p>
+        <div className="text-center">
+          <p className="text-xs md:text-sm lg:text-lg xl:text-xl text-gray-600">
+            Thank you for your interest, You are all set!
+          </p>
+          {subscribedEmail && (
+            <p className="text-xs md:text-sm lg:text-base xl:text-lg text-gray-500 mt-2">
+              You have signed up as: {subscribedEmail}
+            </p>
+          )}
+        </div>
       )}
       {errorMessage && (
         <p className="text-xs md:text-sm lg:text-lg xl:text-xl text-red-400">
