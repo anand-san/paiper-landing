@@ -60,7 +60,8 @@ const config: Config = {
   			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
   			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
   			move: 'move 3s linear infinite',
-  			shine: 'shine var(--duration) infinite linear'
+  			shine: 'shine var(--duration) infinite linear',
+  			gradient: 'gradient 8s linear infinite'
   		},
   		keyframes: {
   			'border-beam': {
@@ -102,6 +103,11 @@ const config: Config = {
   				},
   				to: {
   					'background-position': '0% 0%'
+  				}
+  			},
+  			gradient: {
+  				to: {
+  					backgroundPosition: 'var(--bg-size) 0'
   				}
   			}
   		}
