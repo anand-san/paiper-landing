@@ -156,41 +156,43 @@ export default function PaiperDemo() {
 
       {isUploaded && (
         <Card className="grid items-center justify-center p-0 md:p-6 text-left">
-          <div className="md:overflow-scroll flex justify-center md:min-h-[400px] order-1 md:order-2">
+          <div className="flex justify-center min-h-[400px]">
             {insights ? (
               <div className="flex flex-col">
-                <div className="flex flex-wrap space-x-2 space-y-1 p-2">
+                <div className="space-x-2 space-y-1 p-2">
                   <h1 className="p-2 text-xl md:text-3xl font-bold break-words">
                     {insights?.suggestedFileName}
                   </h1>
                   <p className="text-sm pb-4">{insights?.summary}</p>
-                  {insights?.category && (
-                    <Badge className="rounded-full bg-slate-800 dark:bg-slate-200">
-                      {insights?.category}
-                    </Badge>
-                  )}
-                  {insights?.subCategory && (
-                    <Badge className="rounded-full bg-slate-500">
-                      {insights?.subCategory}
-                    </Badge>
-                  )}
-                  {insights?.tags &&
-                    insights.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="flex items-center gap-1 rounded-full bg-secondary px-3 py-2 text-xs text-secondary-foreground"
-                      >
-                        <Tag className="h-3 w-3" />
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="flex space-x-2 space-y-1 flex-wrap">
+                    {insights?.category && (
+                      <Badge className="rounded-full bg-slate-800 dark:bg-slate-200">
+                        {insights?.category}
+                      </Badge>
+                    )}
+                    {insights?.subCategory && (
+                      <Badge className="rounded-full bg-slate-500">
+                        {insights?.subCategory}
+                      </Badge>
+                    )}
+                    {insights?.tags &&
+                      insights.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="flex items-center gap-1 rounded-full bg-secondary px-3 py-2 text-xs text-secondary-foreground"
+                        >
+                          <Tag className="h-3 w-3" />
+                          {tag}
+                        </span>
+                      ))}
+                  </div>
                   <div className="pt-4">
                     <AdvancedInsightsSection advancedInsights={insights} />
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col justify-center items-center space-y-4 mb-4 md:mb-0">
+              <div className="flex flex-col justify-center items-center space-y-4 my-8 md:mb-0">
                 <Loader2 className="w-8 h-8 animate-spin" />
                 <p className="text-sm">Attempting to preview insights here</p>
               </div>
