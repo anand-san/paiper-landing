@@ -9,7 +9,7 @@ import { FileScanAnimation } from "./feature-card";
 export default function FeatureSet() {
   return (
     <BlurFade delay={0.2 * 6} inView>
-      <section className="w-full max-w-5xl flex flex-col space-y-20 mx-auto p-2 sm:p-8">
+      <section className="w-full max-w-7xl flex flex-col space-y-20 mx-auto p-2 sm:p-8">
         <div className="w-full pt-0 md:pt-16">
           {/* Outer container with glow effect */}
           <div className="relative group">

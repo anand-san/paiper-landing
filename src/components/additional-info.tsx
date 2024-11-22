@@ -1,4 +1,4 @@
-import EarlyAccess from "./early-access";
+// import EarlyAccess from "./early-access";
 
 export default function AdditionalInfo() {
   return (
@@ -16,7 +16,7 @@ export default function AdditionalInfo() {
           </span>
         </div>
       </div>
-      <div className="pt-24 md:pt-40">
+      {/* <div className="pt-24 md:pt-40">
         <h2 className="text-2xl md:text-3xl font-semibold">
           Join the Early Access List
         </h2>
@@ -24,7 +24,7 @@ export default function AdditionalInfo() {
           because life&apos;s too short for document drama
         </p>
       </div>
-      <EarlyAccess />
+      <EarlyAccess /> */}
     </div>
   );
 }

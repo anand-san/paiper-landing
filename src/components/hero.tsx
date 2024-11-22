@@ -1,11 +1,13 @@
-import EarlyAccess from "./early-access";
+// import DailyQuota from "./DailyQuota";
+import DailyQuota from "./DailyQuota";
+import PaiperDemo from "./PaiperDemo";
 import BlurFade from "./ui/blur-fade";
 import Particles from "./ui/particles";
 
 export default function HeroSection() {
   return (
-    <section className="flex justify-center h-[70vh] items-center">
-      <div className="text-center max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-3xl">
+    <section className="flex justify-center h-full pt-12 items-center">
+      <div className="text-center max-w-7xl">
         <BlurFade delay={0.2} inView>
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 md:mb-4">
             Stop Drowning in Papers
@@ -24,13 +26,14 @@ export default function HeroSection() {
             actionable intelligence.
           </p>
         </BlurFade>
-        <BlurFade delay={0.2 * 4} inView>
-          <h3 className="text-xl md:text-2xl xl:text-3xl font-bold mb-6">
-            Sign up for early Access
+        <BlurFade delay={0.2 * 4} inView className="mb-6 space-y-2">
+          <h3 className="text-xl md:text-2xl xl:text-3xl font-bold">
+            Try it yourself
           </h3>
+          <DailyQuota />
         </BlurFade>
         <BlurFade delay={0.2 * 5} inView>
-          <EarlyAccess />
+          <PaiperDemo />
         </BlurFade>
       </div>
       <Particles
