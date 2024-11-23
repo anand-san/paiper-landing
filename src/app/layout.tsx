@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Toaster } from "sonner";
+import { CSPostHogProvider } from "./providers/posthog";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -72,7 +74,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <CSPostHogProvider>{children}</CSPostHogProvider>
+        <Toaster richColors expand position="top-center" />
       </body>
       {googleAnalyticsId && <GoogleAnalytics gaId={googleAnalyticsId} />}
     </html>
