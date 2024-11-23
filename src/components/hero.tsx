@@ -27,7 +27,13 @@ export default function HeroSection() {
         </BlurFade>
         {posthog.isFeatureEnabled("public-demo") && (
           <BlurFade delay={0.25 * 2} inView>
-            <Link href="https://my.paiper.app/login" target="_blank">
+            <Link
+              href="https://my.paiper.app/login"
+              target="_blank"
+              onClick={() => {
+                posthog.capture("app-announcement-clicked");
+              }}
+            >
               <AnimatedGradientText className="my-8">
                 🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
                 <span
