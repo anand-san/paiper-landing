@@ -1,3 +1,4 @@
+"use client";
 import { ChevronRight } from "lucide-react";
 import DailyQuota from "./DailyQuota";
 import PaiperDemo from "./PaiperDemo";
@@ -6,8 +7,11 @@ import BlurFade from "./ui/blur-fade";
 import Particles from "./ui/particles";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import EarlyAccess from "./early-access";
+import { usePostHog } from "posthog-js/react";
 
 export default function HeroSection() {
+  const posthog = usePostHog();
   return (
     <section className="flex justify-center h-full pt-12 items-center">
       <div className="text-center max-w-7xl">
@@ -21,21 +25,24 @@ export default function HeroSection() {
             Start Finding in Seconds
           </h1>
         </BlurFade>
-        <BlurFade delay={0.25 * 2} inView>
-          <Link href="https://my.paiper.app" target="_blank">
-            <AnimatedGradientText className="my-8">
-              🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
-              <span
-                className={cn(
-                  `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
-                )}
-              >
-                Announcing Paiper App
-              </span>
-              <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-            </AnimatedGradientText>
-          </Link>
-        </BlurFade>
+        {posthog.isFeatureEnabled("public-demo") && (
+          <BlurFade delay={0.25 * 2} inView>
+            <Link href="https://my.paiper.app/login" target="_blank">
+              <AnimatedGradientText className="my-8">
+                🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
+                <span
+                  className={cn(
+                    `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+                  )}
+                >
+                  Announcing Paiper App
+                </span>
+                <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+              </AnimatedGradientText>
+            </Link>
+          </BlurFade>
+        )}
+
         <BlurFade delay={0.2 * 3} inView>
           <p className="text-sm md:text-md lg:text-lg xl:text-xl mb-8 md:mb-16 text-gray-400 mx-3 md:mx-4">
             Transform your mountain of documents into an intelligent, searchable
@@ -44,15 +51,30 @@ export default function HeroSection() {
             actionable intelligence.
           </p>
         </BlurFade>
-        <BlurFade delay={0.2 * 4} inView className="mb-6 space-y-2">
-          <h3 className="text-xl md:text-2xl xl:text-3xl font-bold">
-            Try it yourself
-          </h3>
-          <DailyQuota />
-        </BlurFade>
-        <BlurFade delay={0.2 * 5} inView>
-          <PaiperDemo />
-        </BlurFade>
+        {posthog.isFeatureEnabled("public-demo") ? (
+          <>
+            <BlurFade delay={0.2 * 4} inView className="mb-6 space-y-2">
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-bold">
+                Try it yourself
+              </h3>
+              <DailyQuota />
+            </BlurFade>
+            <BlurFade delay={0.2 * 5} inView>
+              <PaiperDemo />
+            </BlurFade>
+          </>
+        ) : (
+          <>
+            <BlurFade delay={0.2 * 4} inView>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-bold mb-6">
+                Sign up for early Access
+              </h3>
+            </BlurFade>
+            <BlurFade delay={0.2 * 5} inView>
+              <EarlyAccess />
+            </BlurFade>
+          </>
+        )}
       </div>
       <Particles
         className="absolute inset-0"
