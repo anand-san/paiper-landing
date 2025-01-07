@@ -2,14 +2,22 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { Upload, FileIcon, Loader2, CheckCircle, Tag } from "lucide-react";
+import {
+  Upload,
+  FileIcon,
+  Loader2,
+  CheckCircle,
+  Tag,
+  ArrowDownIcon,
+} from "lucide-react";
 import { processDemoFile } from "@/lib/fileDemoApi";
 import { toast } from "sonner";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import AdvancedInsightsSection from "./AdvancedInsightsSection";
 import { DemoResponse } from "@/lib/InsightsResponseTypes";
-import ShineBorder from "./ui/shine-border";
+import { usePostHog } from "posthog-js/react";
+import DailyQuota from "./DailyQuota";
 
 interface FileWithPreview extends File {
   preview: string;
@@ -23,6 +31,7 @@ export default function PaiperDemo() {
   const [allowedToUseDemo, setAllowedToUseDemo] = useState(true);
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     try {
+      posthog.capture("demo-file-uploaded");
       if (acceptedFiles.length > 0) {
         const selectedFile = Object.assign(acceptedFiles[0], {
           preview: URL.createObjectURL(acceptedFiles[0]),
@@ -52,7 +61,7 @@ export default function PaiperDemo() {
       setIsUploaded(true);
     }
   }, []);
-
+  const posthog = usePostHog();
   useEffect(() => {
     const hasReachedDemoLimit =
       localStorage.getItem("hasUsedFreeDemo") === "3" ||
@@ -100,34 +109,39 @@ export default function PaiperDemo() {
   }
 
   return (
-    <div className="mx-auto p-6">
+    <div className="mx-auto p-6 flex flex-col items-center justify-center">
+      <ArrowDownIcon className="w-12 h-12" />
+      <h3 className="text-xl md:text-2xl xl:text-3xl font-semibold py-6">
+        Give it a try yourself - Its free
+      </h3>
+      <DailyQuota />
       {!file && (
-        <ShineBorder
-          className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
-          color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+        // <ShineBorder
+        //   className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+        //   color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+        // >
+        <div
+          {...getRootProps()}
+          className={`w-full flex bg-neutral-50 hover:bg-purple-50  flex-col items-center justify-center h-[300px] rounded-lg p-8 text-center cursor-pointer transition-colors ${
+            isDragActive
+              ? "border-primary bg-primary/10"
+              : "border-gray-300 hover:border-primary"
+          }`}
         >
-          <div
-            {...getRootProps()}
-            className={`flex  flex-col items-center justify-center h-[300px] rounded-lg p-8 text-center cursor-pointer transition-colors ${
-              isDragActive
-                ? "border-primary bg-primary/10"
-                : "border-gray-300 hover:border-primary"
-            }`}
-          >
-            <input {...getInputProps()} />
-            <Upload className="mx-auto h-12 w-12 text-gray-400" />
-            <p className="mt-2 text-sm text-gray-600">
-              Click here or drag and drop a file to get started
-            </p>
-            <p className="mt-1 text-xs text-gray-500">
-              Accepts: PDF (max 8 pages), Images and text files (Max 5MB)
-            </p>
-          </div>
-        </ShineBorder>
+          <input {...getInputProps()} />
+          <Upload className="mx-auto h-12 w-12 text-gray-400" />
+          <p className="mt-2 text-sm text-gray-600">
+            Click here or drag and drop a file to get started
+          </p>
+          <p className="mt-1 text-xs text-gray-500">
+            Accepts: PDF (max 8 pages), Images and text files (Max 5MB)
+          </p>
+        </div>
+        // </ShineBorder>
       )}
 
       {file && !isUploaded && (
-        <div className="mt-6">
+        <div className="mt-6 w-full">
           <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
             <div className="flex items-center">
               <FileIcon className="h-6 w-6 text-blue-500 mr-3" />

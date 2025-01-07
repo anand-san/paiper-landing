@@ -1,9 +1,7 @@
 "use client";
-import { usePostHog } from "posthog-js/react";
-import EarlyAccess from "./early-access";
+import TryAppButton from "./TryAppButton";
 
 export default function AdditionalInfo() {
-  const posthog = usePostHog();
   return (
     <div className="max-w-2xl w-full space-y-8 text-center pt-24 md:pt-40">
       <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -19,19 +17,20 @@ export default function AdditionalInfo() {
           </span>
         </div>
       </div>
-      {!posthog.isFeatureEnabled("public-demo") && (
-        <>
-          <div className="pt-24 md:pt-40">
-            <h2 className="text-2xl md:text-3xl font-semibold">
-              Join the Early Access List
-            </h2>
-            <p className="mt-2 text-gray-600">
-              because life&apos;s too short for document drama
-            </p>
-          </div>
-          <EarlyAccess />
-        </>
-      )}
+
+      <>
+        <div className="pt-24 md:pt-40">
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            Try the app now for free
+          </h2>
+          <p className="mt-2 text-gray-600">
+            because life&apos;s too short for document drama
+          </p>
+        </div>
+      </>
+      <div className="max-w-xs mx-auto">
+        <TryAppButton title="Open App" />
+      </div>
     </div>
   );
 }
