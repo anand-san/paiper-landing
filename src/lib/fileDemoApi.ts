@@ -1,6 +1,6 @@
 import { DemoLimits, DemoResponse } from "./InsightsResponseTypes";
 
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "https://my.paiper.app";
 
 export const processDemoFile = async (file: File) => {
   try {

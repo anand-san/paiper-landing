@@ -7,7 +7,6 @@ import BlurFade from "./ui/blur-fade";
 import Particles from "./ui/particles";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import EarlyAccess from "./early-access";
 import { usePostHog } from "posthog-js/react";
 
 export default function HeroSection() {
@@ -57,30 +56,17 @@ export default function HeroSection() {
             actionable intelligence.
           </p>
         </BlurFade>
-        {posthog.isFeatureEnabled("public-demo") ? (
-          <>
-            <BlurFade delay={0.2 * 4} inView className="mb-6 space-y-2">
-              <h3 className="text-xl md:text-2xl xl:text-3xl font-bold">
-                Try it yourself
-              </h3>
-              <DailyQuota />
-            </BlurFade>
-            <BlurFade delay={0.2 * 5} inView>
-              <PaiperDemo />
-            </BlurFade>
-          </>
-        ) : (
-          <>
-            <BlurFade delay={0.2 * 4} inView>
-              <h3 className="text-xl md:text-2xl xl:text-3xl font-bold mb-6">
-                Sign up for early Access
-              </h3>
-            </BlurFade>
-            <BlurFade delay={0.2 * 5} inView>
-              <EarlyAccess />
-            </BlurFade>
-          </>
-        )}
+        <>
+          <BlurFade delay={0.2 * 4} inView className="mb-6 space-y-2">
+            <h3 className="text-xl md:text-2xl xl:text-3xl font-bold">
+              Try it yourself
+            </h3>
+            <DailyQuota />
+          </BlurFade>
+          <BlurFade delay={0.2 * 5} inView>
+            <PaiperDemo />
+          </BlurFade>
+        </>
       </div>
       <Particles
         className="absolute inset-0"
